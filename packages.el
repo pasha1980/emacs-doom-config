@@ -54,4 +54,4 @@
 ;; (unpin! t)
 (package! vue-mode)
 (package! add-node-modules-path)
-
+(package! nvm)
