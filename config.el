@@ -82,3 +82,9 @@
   (add-hook 'vue-mode-hook #'lsp))
 
 (setq confirm-kill-emacs nil)
+
+(after! lsp-mode
+  (setq lsp-intelephense-files-exclude ["**/var/cache/**"]))
+
+(after! projectile
+  (add-to-list 'projectile-globally-ignored-directories "var/cache"))
