@@ -76,11 +76,6 @@
 ;; they are implemented.
 (add-hook 'doom-first-file-hook #'treemacs)
 
-(use-package vue-mode
-  :mode "\\.vue\\'"
-  :config
-  (add-hook 'vue-mode-hook #'lsp))
-
 (setq confirm-kill-emacs nil)
 
 (after! lsp-mode
@@ -88,3 +83,5 @@
 
 (after! projectile
   (add-to-list 'projectile-globally-ignored-directories "var/cache"))
+
+(add-hook 'vue-mode-hook #'lsp!)

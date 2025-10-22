@@ -147,7 +147,7 @@
        ;;janet             ; Fun fact: Janet is me!
        ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
-       (web +lsp +tree-sitter)
+       (web +lsp)
 	   (typescript +lsp)
 	   (json +lsp)
        ;;julia             ; a better, faster MATLAB
