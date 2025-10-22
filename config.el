@@ -76,35 +76,9 @@
 ;; they are implemented.
 (add-hook 'doom-first-file-hook #'treemacs)
 
-(defun my/lazygit-popup ()
-  "Open lazygit in a popup terminal window."
-  (interactive)
-  (let ((buf (get-buffer-create "*lazygit*")))
-    (with-current-buffer buf
-      (vterm-mode)
-      (vterm-send-string "lazygit")
-      (vterm-send-return))
-    (display-buffer-in-side-window
-     buf '((side . bottom) (slot . 0) (window-height . 0.4)))))
+(use-package vue-mode
+  :mode "\\.vue\\'"
+  :config
+  (add-hook 'vue-mode-hook #'lsp))
 
-(map! :leader
-      (:prefix ("g" . "git")
-       :desc "LazyGit (popup)" "G" #'my/lazygit-popup))
-
-(after! vterm
-  (add-hook 'vterm-exit-functions
-            (lambda (_buf _status)
-              (when (string-match-p "lazygit" (buffer-name _buf))
-                (delete-window (get-buffer-window _buf))
-                (kill-buffer _buf)))))
-
-
-(add-hook 'vue-mode-hook #'lsp!)
-
-(after! lsp-mode
-  (add-to-list 'lsp-language-id-configuration '(vue-mode . "vue"))
-  (lsp-register-client
-   (make-lsp-client
-    :new-connection (lsp-stdio-connection '("vue-language-server" "--stdio"))
-    :activation-fn (lsp-activate-on "vue")
-    :server-id 'volar)))
+(setq confirm-kill-emacs nil)
