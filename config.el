@@ -74,7 +74,9 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(add-hook 'doom-first-file-hook #'treemacs)
+
+
+;;(add-hook 'doom-first-file-hook #'treemacs)
 
 (setq confirm-kill-emacs nil)
 
