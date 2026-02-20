@@ -78,7 +78,7 @@
 
 (setq-hook! 'yaml-mode-hook +format-with 'none)
 (after! apheleia
-  (set-formatter! 'none '("true") :modes 'yaml-mode))
+  (set-formatter! 'none '("true") :modes '(yaml-mode)))
 
 (setq confirm-kill-emacs nil)
 
