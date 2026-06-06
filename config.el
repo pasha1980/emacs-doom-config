@@ -81,6 +81,8 @@
   (set-formatter! 'none '("true") :modes '(yaml-mode)))
 
 (setq confirm-kill-emacs nil)
+(setq doom-theme `doom-gruvbox)
+;; (setq doom-theme `doom-ayu-dark)
 
 (after! lsp-mode
   (setq lsp-intelephense-files-exclude ["**/var/cache/**"]))
@@ -89,3 +91,5 @@
   (add-to-list 'projectile-globally-ignored-directories "var/cache"))
 
 (add-hook 'vue-mode-hook #'lsp!)
+
+(add-to-list 'auto-mode-alist '("\\.astro\\'" . web-mode))
